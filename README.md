@@ -114,7 +114,7 @@ Lets create a controller!
 
 In iTerm, type
 ```
-rails g controller static_pages
+rails generate controller static_pages
 ```
 
 You should be able to see that Rails have created all the important files/folders for you!
