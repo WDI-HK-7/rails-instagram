@@ -18,6 +18,10 @@
 ```ruby
 # Define Rails versions
 gem 'rails', '4.2.1'
+```
+
+- Remove the following from the **Gemfile**
+```ruby
 # Use sqlite3 as the database for Development
 gem 'sqlite3', group: :development
 ```
@@ -50,35 +54,24 @@ In psql, you need to create a user called `admin` with password `admin`
 CREATE USER admin WITH PASSWORD 'admin';
 ```
 
-In psql, you need to create a database called `test`
+In psql, you need to create a database called `development`
 
 ```psql
-CREATE DATABASE test;
+CREATE DATABASE development;
 ```
 
-Now new database `test` is created. Now we will grant access to `admin`.
+Now new database `development` is created. Now we will grant access to `admin`.
 
 ```psql
-GRANT ALL PRIVILEGES ON DATABASE test to admin;
+GRANT ALL PRIVILEGES ON DATABASE development to admin;
 ```
 
 In **config/database.yml**, add the configurations of Postgres database
 
 ```ruby
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
-#
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
-development:
   adapter: postgresql
-  database: test
+  database: development
   username: admin
   password: admin
   host: localhost
@@ -86,12 +79,14 @@ development:
   pool: 5
   timeout: 5000
 
+development:
+  <<: *default
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
 
 production:
   <<: *default
