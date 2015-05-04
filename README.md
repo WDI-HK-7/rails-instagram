@@ -109,6 +109,11 @@ It means that when you visit the root path of the website `http://<domain_name.c
 
 You can check if you have done this correctly `in the terminal` by typing `rake routes`
 
+```
+Prefix Verb URI Pattern Controller#Action
+  root GET  /           static_pages#index
+```
+
 ####Step 6: Controllers
 Lets create a controller!
 
