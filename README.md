@@ -39,7 +39,68 @@ gem 'binding_of_caller'
 - In Terminal, `bundle install`
 - This install all the necessary Ruby libraries for the Rails application
 
-####Step 4: Routes.rb
+####Step 4: Postgres Database
+- Download and Install: http://postgresapp.com/
+- After installation, open `psql`
+- Documentations can be found [Here](http://postgresguide.com/)
+
+In psql, you need to create a user called `admin` with password `admin`
+
+```psql
+CREATE USER admin WITH PASSWORD 'admin';
+```
+
+In psql, you need to create a database called `test`
+
+```psql
+CREATE DATABASE test;
+```
+
+Now new database `test` is created. Now we will grant access to `admin`.
+
+```psql
+GRANT ALL PRIVILEGES ON DATABASE test to admin;
+```
+
+In **config/database.yml**, add the configurations of Postgres database
+
+```ruby
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: postgresql
+  database: test
+  username: admin
+  password: admin
+  host: localhost
+  port: 5432
+  pool: 5
+  timeout: 5000
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
+
+```
+
+
+####Step 5: Routes.rb
 In Sublime, search for **"routes.rb"** under **config > routes.rb**
 
 Add the following line:
@@ -53,7 +114,7 @@ It means that when you visit the root path of the website `http://<domain_name.c
 
 You can check if you have done this correctly `in the terminal` by typing `rake routes`
 
-####Step 5: Controllers
+####Step 6: Controllers
 Lets create a controller!
 
 In iTerm, type
@@ -76,7 +137,7 @@ invoke    scss
 create      app/assets/stylesheets/static_pages.css.scss
 ```
 
-####Step 6: Controller actions
+####Step 7: Controller actions
 In Sublime, search for **static_pages_controller.rb** under **app > controllers**
 
 Add an **index action/method**
@@ -88,7 +149,7 @@ end
 
 ```
 
-####Step 7: Views
+####Step 8: Views
 Because we created an **index method** inside the controller, we need to created an html with the name **index.html.erb** under the folder with the same name as the controller
 ```
 app > views > controller-name > method.html.erb
@@ -98,10 +159,10 @@ If we created **show method**, we need to created **show.html.erb**
 
 In this file **index.html.erb**, add
 ``` html
-<h1>My first HTML page in ROR</h1>
+<h1>Hello World!</h1>
 ```
 
-####Step 8: Start a Rails server
+####Step 9: Start a Rails server
 Run the server!
 
 In Terminal, run `rails server`, or simply `rails s`
@@ -110,7 +171,7 @@ In your browser, go to `http://localhost:3000`
 
 WOW! You just created your first page in Rails!
 
-####Step 9: Changing Styles / Adding Bootstrap
+####Step 10: Changing Styles / Adding Bootstrap
 - Change `application.css` to `application.css.scss`
 - Add the following line to the end of `application.css.scss`
 
@@ -119,7 +180,7 @@ WOW! You just created your first page in Rails!
 @import "bootstrap";
 ```
 
-####Step 10: Deploy to Heroku
+####Step 11: Deploy to Heroku
 - In `config/production.rb`, change the following 
 
 ```
