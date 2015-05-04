@@ -31,8 +31,8 @@ gem 'sqlite3', group: :development
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.3.0'
 
-# Use postgresql as the database for Production
-gem 'pg', group: :production
+# Use postgresql as the database
+gem 'pg'
 
 # Debugging tools
 gem 'better_errors'
