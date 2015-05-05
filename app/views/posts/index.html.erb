@@ -1,0 +1,10 @@
+<h1>List of all Comments</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <%= post.id %>
+    <%= post.title %>
+    <%= post.content %>
+    <%= post.created_at %>
+  </div>
+<% end %>
