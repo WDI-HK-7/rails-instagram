@@ -1,0 +1,18 @@
+'use strict';
+
+var app = angular.module('app', ['ngRoute']);
+
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $routeProvider.
+    when('/', {
+      templateUrl: "<%= asset_path('static_pages/login.html') %>",
+      controller: 'LoginsCtrl'
+    })
+
+    // .
+    // otherwise({
+    //   redirectTo: '/'
+    // });
+
+    $locationProvider.html5Mode(true);
+}]);

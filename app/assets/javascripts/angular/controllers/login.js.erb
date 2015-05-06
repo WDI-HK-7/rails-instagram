@@ -1,0 +1,19 @@
+app.controller('LoginsCtrl', ['$scope', '$http', function($scope, $http){
+  console.log("working");
+  $scope.message = "working";
+
+  var data = {
+    user: {
+      email: 'harry@chen.com',
+      password: 'asdasdasd'
+    }
+  };
+
+  $http.post('http://localhost:3000/users/sign_in', data).success(function(response){
+    console.log(response)
+
+    $http.get('http://localhost:3000/posts').success(function(response){
+      console.log(response)
+    });
+  });
+}]);

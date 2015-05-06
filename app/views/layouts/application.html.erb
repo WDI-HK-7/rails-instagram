@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 <head>
   <title>RailsBasicTemplate</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <base href="/">
 </head>
 <body ng-view>
-
-<%= yield %>
-
 </body>
 </html>
