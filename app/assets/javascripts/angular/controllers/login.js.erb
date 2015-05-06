@@ -9,10 +9,12 @@ app.controller('LoginsCtrl', ['$scope', '$http', function($scope, $http){
     }
   };
 
-  $http.post('http://localhost:3000/users/sign_in', data).success(function(response){
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/"
+
+  $http.post(url + 'users/sign_in', data).success(function(response){
     console.log(response)
 
-    $http.get('http://localhost:3000/posts').success(function(response){
+    $http.get(url + 'posts').success(function(response){
       console.log(response)
     });
   });
