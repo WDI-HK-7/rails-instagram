@@ -1,4 +1,4 @@
-app.controller('SignUpCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('SignUpCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/"
 
@@ -15,7 +15,9 @@ app.controller('SignUpCtrl', ['$scope', '$http', function($scope, $http){
     console.log(data);
 
     $http.post(url + 'users', data).success(function(response){
-      console.log(response)
+      console.log(response);
+
+      $location.path('/login');
     });
   };
 }]);

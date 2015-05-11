@@ -15,7 +15,7 @@ app.controller('LoginCtrl', ['$scope', '$http', function($scope, $http){
     console.log(data);
 
     $http.post(url + 'users/sign_in', data).success(function(response){
-      console.log(response)
+      console.log(response);
     });
   };
 }]);
