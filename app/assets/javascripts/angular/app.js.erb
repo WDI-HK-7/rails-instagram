@@ -23,6 +23,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/posts/:id', {
       templateUrl: "<%= asset_path('posts/show.html') %>",
       controller: 'PostsShowCtrl'
+    }).
+    when('/new_posts', {
+      templateUrl: "<%= asset_path('posts/new.html') %>",
+      controller: 'PostsNewCtrl'
     })
 
     // .
