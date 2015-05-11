@@ -1,0 +1,16 @@
+app.controller('StaticPagesCtrl', ['$scope', '$http', function($scope, $http){
+  console.log("working");
+  $scope.message = "Hello World!";
+
+  $scope.form = {};
+
+  $scope.form.logout = function(){
+    console.log("logging out...");
+    
+    var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+
+    $http.delete(url + '/users/sign_out').success(function(response){
+      console.log(response);
+    })
+  };
+}]);

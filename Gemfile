@@ -50,3 +50,8 @@ gem 'binding_of_caller'
 # User Management System
 gem 'devise'
 
+# Bower
+gem 'bower'
+
+# For Bower on Heroku
+gem 'rails_12factor', group: :production

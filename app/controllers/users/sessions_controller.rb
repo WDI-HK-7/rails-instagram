@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   def create
-    resource = warden.authenticate!(:scope => resource_name, :recall => "user/sessions#failure")
+    resource = warden.authenticate!(:scope => resource_name, :recall => "users/sessions#failure")
     return sign_in_and_redirect(resource_name, resource)
   end
   
