@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  get '/*path' => 'static_pages#index'
+  # get '/*path' => 'static_pages#index'
 end

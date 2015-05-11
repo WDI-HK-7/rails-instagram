@@ -5,8 +5,12 @@ var app = angular.module('app', ['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider.
     when('/', {
-      templateUrl: "<%= asset_path('static_pages/login.html') %>",
-      controller: 'LoginsCtrl'
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'StaticPagesCtrl'
+    }).
+    when('/login', {
+      templateUrl: "<%= asset_path('users/login.html') %>",
+      controller: 'LoginCtrl'
     })
 
     // .
@@ -14,5 +18,5 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     //   redirectTo: '/'
     // });
 
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 }]);
