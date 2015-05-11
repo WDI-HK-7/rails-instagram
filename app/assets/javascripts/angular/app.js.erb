@@ -11,6 +11,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/login', {
       templateUrl: "<%= asset_path('users/login.html') %>",
       controller: 'LoginCtrl'
+    }).
+    when('/signup', {
+      templateUrl: "<%= asset_path('users/signup.html') %>",
+      controller: 'SignUpCtrl'
     })
 
     // .
