@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'static_pages#index'
 
   resources :posts
+  resources :comments
 
   # get '/*path' => 'static_pages#index'
 end
