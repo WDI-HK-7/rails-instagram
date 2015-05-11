@@ -1,0 +1,8 @@
+app.controller('PostsShowCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/"
+
+  $http.get(url + '/posts/' + $routeParams.id).success(function(response){
+    $scope.post = response;
+  });
+}]);
