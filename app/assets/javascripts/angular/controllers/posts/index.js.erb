@@ -6,4 +6,21 @@ app.controller('PostsIndexCtrl', ['$scope', '$http', '$location', function($scop
     console.log(response);
     $scope.posts = response;
   });
+
+  $scope.form = {};
+
+  $scope.form.create = function(post_id, index){
+    var data = {
+      comment: {
+        content: $scope.posts[index].new_comment.content,
+        post_id: post_id
+      }
+    };
+
+    $http.post(url + '/comments', data).success(function(response){
+      console.log(response);
+
+      $scope.posts[index].comments.push(data.comment);
+    });
+  };
 }]);
