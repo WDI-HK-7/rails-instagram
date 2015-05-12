@@ -1,17 +1,26 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('PostsNewCtrl', ['$scope', '$http', 'Upload', function($scope, $http, Upload){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
     
   $scope.post = {};
+  $scope.picture = {};
   $scope.form = {};
 
   $scope.form.create = function(){
     var data = {
-      post: $scope.post
+      'post[title]': $scope.post.title,
+      'post[content]': $scope.post.content,
+      'post[category]': $scope.post.category
     };
 
-    $http.post(url + 'posts', data).success(function(response){
-      console.log(response);
-    });
+    Upload.upload({
+      url: url + 'posts',
+      method: 'POST',
+      fields: data,
+      file: $scope.picture.files[0],
+      fileFormDataName: 'post[picture]'
+    }).success(function(response) {
+        console.log(response);
+    });;
   };
 }]);
