@@ -10,7 +10,7 @@ app.controller('PostsNewCtrl', ['$scope', '$http', function($scope, $http){
       post: $scope.post
     };
 
-    $http.post(url + '/posts', data).success(function(response){
+    $http.post(url + 'posts', data).success(function(response){
       console.log(response);
     });
   };
