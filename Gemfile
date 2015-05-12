@@ -55,3 +55,6 @@ gem 'bower'
 
 # For Bower on Heroku
 gem 'rails_12factor', group: :production
+
+# Uploading file
+gem "paperclip", "~> 4.2"
