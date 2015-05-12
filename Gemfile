@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -55,3 +55,6 @@ gem 'bower'
 
 # For Bower on Heroku
 gem 'rails_12factor', group: :production
+
+# Uploading file
+gem "paperclip", "~> 4.2"
