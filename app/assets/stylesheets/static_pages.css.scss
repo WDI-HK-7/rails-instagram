@@ -1,3 +1,29 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  background: #fff; 
+}
+
+.main-section{
+  background: #e0e1e2;
+}
+
+.navbar-default{
+  color: white;
+
+  a.navbar-brand{
+    color: #bfbfbb;
+
+    &:hover{
+      color: white;
+    }
+  }
+}
+
+.instagram-navbar{
+  background-color: #517fa4;
+  color: white;
+  border-bottom: 1px solid #1c5380;
+}
