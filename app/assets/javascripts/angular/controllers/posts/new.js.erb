@@ -1,4 +1,4 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', 'Upload', function($scope, $http, Upload){
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location', 'Upload', function($scope, $http, $location, Upload){
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
     
@@ -21,6 +21,7 @@ app.controller('PostsNewCtrl', ['$scope', '$http', 'Upload', function($scope, $h
       fileFormDataName: 'post[picture]'
     }).success(function(response) {
         console.log(response);
+        $location.path('/posts');
     });;
   };
 }]);

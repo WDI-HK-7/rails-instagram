@@ -9,7 +9,7 @@ app.controller('StaticPagesCtrl', ['$scope', '$http', function($scope, $http){
     
     var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
-    $http.delete(url + '/users/sign_out').success(function(response){
+    $http.delete(url + 'users/sign_out').success(function(response){
       console.log(response);
     })
   };
