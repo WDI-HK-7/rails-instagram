@@ -19,7 +19,7 @@
     <section class="col-xs-6 col-xs-offset-3">
       <div ng-repeat="post in posts track by $index">
 
-        <img src="{{ post.picture }}" class="img-responsive">
+        <img ng-src="{{ post.picture }}" class="img-responsive">
 
         <div class="page-header">
           {{ post.title }}
