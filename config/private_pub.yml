@@ -1,0 +1,10 @@
+development:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+test:
+  server: "http://localhost:9292/faye"
+  secret_token: "secret"
+production:
+  server: "https://realtime-rails.herokuapp.com/faye"
+  secret_token: "f696b1dfe717ffabbb98d4d58b76fb1ce4b7e20f16c668368b918ef2b02bf5af"
+  signature_expiration: 3600 # one hour

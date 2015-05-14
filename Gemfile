@@ -64,3 +64,7 @@ gem 'aws-sdk', '~> 1.5.7'
 
 # Managing Sensitive ENV variables
 gem 'dotenv-rails', :groups => [:development, :test]
+
+# Private Pub (Real-time)
+gem 'private_pub'
+gem "thin"

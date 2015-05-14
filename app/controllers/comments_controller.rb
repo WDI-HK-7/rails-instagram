@@ -2,12 +2,18 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    @post = current_user.comments.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
 
-    if @post.save
+    if @comment.save
+      PrivatePub.publish_to "/comments/new", :data => {
+        :comment=> @comment,
+        :post_id => @comment.post_id
+      }
+
       render :json => {
         :message => { :message => "Successful", :saved => true }
       }
+
     else
       render :json => {
         :message => { :message => "Unsuccessful", :saved => false }

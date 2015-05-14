@@ -17,4 +17,5 @@
 //= require angular-route/angular-route
 //= require ng-file-upload/ng-file-upload
 //= require ng-file-upload/ng-file-upload-shim
+//= require private_pub
 //= require_tree .

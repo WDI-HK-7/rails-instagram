@@ -2,7 +2,7 @@ app.controller('PostsIndexCtrl', ['$scope', '$http', '$location', function($scop
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
-  $http.get(url + '/posts').success(function(response){
+  $http.get(url + 'posts').success(function(response){
     console.log(response);
     $scope.posts = response;
   });
@@ -17,10 +17,24 @@ app.controller('PostsIndexCtrl', ['$scope', '$http', '$location', function($scop
       }
     };
 
-    $http.post(url + '/comments', data).success(function(response){
+    $http.post(url + 'comments', data).success(function(response){
       console.log(response);
 
-      $scope.posts[index].comments.push(data.comment);
+      $scope.posts[index].new_comment.content = "";
+      // $scope.posts[index].comments.push(data.comment);
     });
   };
+
+  PrivatePub.subscribe("/comments/new", function(data, channel) {
+    console.log(data.data);
+
+    $scope.$apply(function($scope) {
+      $scope.posts.forEach(function(post, index){
+        if (post.id == data.data.post_id){
+          console.log($scope.posts[index]);
+          $scope.posts[index].comments.push(data.data.comment);
+        }
+      });
+    });
+  });
 }]);
