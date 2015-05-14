@@ -58,3 +58,9 @@ gem 'rails_12factor', group: :production
 
 # Uploading file
 gem "paperclip", "~> 4.2"
+
+# Storing profile pictures in AWS S3
+gem 'aws-sdk', '~> 1.5.7'
+
+# Managing Sensitive ENV variables
+gem 'dotenv-rails', :groups => [:development, :test]
