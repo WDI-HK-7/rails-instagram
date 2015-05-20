@@ -67,4 +67,6 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # Private Pub (Real-time)
 gem 'private_pub'
-gem "thin"
+gem 'thin'
+
+gem 'exifr'

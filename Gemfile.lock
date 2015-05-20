@@ -95,6 +95,7 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
+    exifr (1.2.2)
     faye (1.1.1)
       cookiejar (>= 0.3.0)
       em-http-request (>= 0.3.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
+  exifr
   jbuilder (~> 2.0)
   jquery-rails
   paperclip (~> 4.2)

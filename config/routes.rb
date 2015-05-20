@@ -9,5 +9,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
 
+  get 'test' => 'posts#test'
+  post 'test_upload' => 'posts#test_upload'
+
   # get '/*path' => 'static_pages#index'
 end

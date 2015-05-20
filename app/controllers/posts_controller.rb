@@ -1,6 +1,30 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  def test
+    require 'open-uri'
+
+    url = "http://s3.amazonaws.com/rails-instagram/posts/pictures/000/000/022/original/test.jpg?1432031116"
+    file = open(URI.parse(url))
+    
+    exifr = EXIFR::JPEG.new(file)
+
+    render :json => {
+      lat: exifr.gps.latitude,
+      long: exifr.gps.longitude 
+    }
+  end
+
+  def test_upload
+    file = params[:picture].tempfile
+
+    exifr = EXIFR::JPEG.new(file)
+
+    render :json => {
+      message: exifr
+    }
+  end
+
   def index
     @posts = Post.includes(:comments) # retrieve all the Post data, and store them in the variable @posts
   end
