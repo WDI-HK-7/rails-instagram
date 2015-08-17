@@ -1,4 +1,4 @@
-app.controller('StaticPagesCtrl', ['$scope', '$http', function($scope, $http){
+app.controller('StaticPagesCtrl', ['$scope', '$http', 'User', function($scope, $http, User){
   console.log("working");
   $scope.message = "Hello World!";
 
@@ -13,4 +13,6 @@ app.controller('StaticPagesCtrl', ['$scope', '$http', function($scope, $http){
       console.log(response);
     })
   };
+
+  console.log(User.loggedIn());
 }]);

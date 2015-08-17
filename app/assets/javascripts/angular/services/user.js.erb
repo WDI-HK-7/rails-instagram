@@ -1,0 +1,15 @@
+app.factory('User', function($http) {
+  var user = {};
+
+  user.loggedIn = function(){
+    return true;
+  };
+  
+  return user;
+});
+
+app.factory('User', ['$http', function($http){
+  return function name(){
+    
+  };
+}])
